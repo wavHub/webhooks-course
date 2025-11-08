@@ -21,16 +21,14 @@ app.post("/github", (req, res) => {
   //Todo: Change the content variable to contain the repository name and
   // the github user name... and emoji flair of your choice!
   const repoName = req.body.repository.name;
-  const userName = req.body.sender.login
-  const content = ":wave: Lets Go!";
+  const userName = req.body.sender.login;
+  const content = `Look who just ⭐️! ${repoName} Thanks ${userName}:rocket:!`;
   const avatarUrl = req.body.sender.avatar_url;
   axios
     .post(process.env.DISCORD_WEBHOOK_URL, {
       content: content,
       embeds: [
         {
-          title: `New commit in ${repoName} by ${userName}`,
-          description: content,
           image: {
             url: avatarUrl,
           },
