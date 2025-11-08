@@ -27,7 +27,7 @@ app.post("/github", (req, res) => {
   
   let content;
   if (action === "created") {
-    content = `Look who just ⭐️! ${repoName} Thanks ${userName}:rocket:!`;
+    content = `Look who just ⭐️ ${repoName}! \nThanks ${userName}:rocket:!`;
   } else if (action === "deleted") {
     content = `Oh no! ${userName} unstarred ${repoName} 😢`;
   } else {
