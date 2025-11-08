@@ -18,6 +18,10 @@ app.get("/", (req, res) => res.send(`
 `));
 
 app.post("/github", (req, res) => {
+  //Todo: Change the content variable to contain the repository name and
+  // the github user name... and emoji flair of your choice!
+  const repoName = req.body.repository.name;
+  const userName = req.body.sender.login
   const content = ":wave: Lets Go!";
   const avatarUrl = req.body.sender.avatar_url;
   axios
@@ -25,6 +29,8 @@ app.post("/github", (req, res) => {
       content: content,
       embeds: [
         {
+          title: `New commit in ${repoName} by ${userName}`,
+          description: content,
           image: {
             url: avatarUrl,
           },
