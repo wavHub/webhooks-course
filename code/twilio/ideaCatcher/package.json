@@ -1,20 +1,59 @@
 {
-  "name": "ideaCatcher",
+  "name": "idea-catcher",
   "version": "0.0.0",
   "private": true,
+  "description": "Twilio Serverless Functions project - Handles incoming SMS and processes transcriptions",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "twilio-run",
     "deploy": "twilio-run deploy"
   },
+  
   "dependencies": {
     "twilio": "5.0.3",
     "@twilio/runtime-handler": "2.0.3"
   },
+  
   "devDependencies": {
     "twilio-run": "^4.2.0"
   },
+  
   "engines": {
     "node": "22"
+  },
+  
+  "comments": {
+    "project-type": "Twilio Serverless Functions - Cloud-hosted functions managed by Twilio",
+    
+    "how-it-works": {
+      "step-1": "User sends SMS to your Twilio phone number",
+      "step-2": "Twilio receives the message and triggers your serverless function",
+      "step-3": "Your function in /functions/send-text.js processes the incoming data",
+      "step-4": "Function sends a response back through Twilio",
+      "step-5": "Response SMS is sent back to the user",
+      "no-server-needed": "Twilio manages all servers - you only write functions"
+    },
+    
+    "scripts-explained": {
+      "npm-start": "Runs 'twilio-run' - starts local development server at http://localhost:3000",
+      "npm-run-deploy": "Deploys your functions to Twilio's servers using 'twilio-run deploy'",
+      "local-testing": "Use 'npm start' to test functions locally before deploying"
+    },
+    
+    "dependencies-explained": {
+      "twilio": "Twilio SDK - allows you to interact with Twilio services (SMS, calls, etc.)",
+      "runtime-handler": "Handles the runtime environment for your Twilio functions"
+    },
+    
+    "devDependencies-explained": {
+      "twilio-run": "Development tool - lets you run functions locally and deploy to Twilio"
+    },
+    
+    "deployment": {
+      "local": "npm start → Functions run on your machine for testing",
+      "production": "npm run deploy → Functions deployed to Twilio's servers (always running)",
+      "credentials": "Uses .env file for ACCOUNT_SID and AUTH_TOKEN (never commit .env!)"
+    }
   }
 }
